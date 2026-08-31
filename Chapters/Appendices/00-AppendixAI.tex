@@ -1,0 +1,246 @@
+\ifthenelse{\equal{\LanguageOption}{portuguese}}{\def\AppendixAILang{0}}{\ifthenelse{\equal{\LanguageOption}{spanish}}{\def\AppendixAILang{1}}{\def\AppendixAILang{2}}}
+
+\ifnum\AppendixAILang=0
+    \chapter{Exemplos da Utilização de IA}
+\else\ifnum\AppendixAILang=1
+    \chapter{Ejemplos del Uso de IA}
+\else
+    \chapter{Examples of AI Usage}
+\fi\fi
+\label{cp:appendix-ai}
+\guideinfo{Appendices contain supplementary material \textbf{created by the author} that enhances the reader’s understanding of the dissertation while not being essential for following the primary narrative. These sections often include detailed tables, figures, complex calculations, or materials like survey questions and interview transcripts produced in the course of the research. The appendices allow readers to explore the research in greater detail, offering a deeper insight into methods and findings without interrupting the main body of work. \bigskip }
+
+\ifthenelse{\equal{\LanguageOption}{portuguese}}{%
+    As secções seguintes apresentam exemplos representativos das interações assistidas por IA referidas na Declaração de Utilização de Inteligência Artificial, ilustrando o conjunto de tarefas para as quais foram utilizadas ferramentas baseadas em IA na elaboração deste trabalho.
+}{\ifthenelse{\equal{\LanguageOption}{spanish}}{%
+    Las siguientes secciones presentan ejemplos representativos de las interacciones asistidas por IA mencionadas en la Declaración sobre el Uso de Inteligencia Artificial, ilustrando el conjunto de tareas para las que se emplearon herramientas basadas en IA en la elaboración de este trabajo.
+}{%
+    The following sections present representative examples of the AI-assisted interactions referenced in the AI Use Declaration, illustrating the range of tasks for which AI-based tools were employed in the preparation of this work.
+}}
+
+\ifnum\AppendixAILang=0
+    \section*{Exemplo da Utilização de IA}
+
+    \subsection*{Verificação Ortográfica e Gramatical}
+
+    \prompt[1]{Por favor, reveja o seguinte parágrafo quanto a erros gramaticais e ortográficos, corrigindo-o sem alterar o seu significado: "O método proposto foram avaliados em três conjuntos de dados, e os resultados mostra uma melhoria significativa em comparação com a abordagem de referência."}
+
+    \aioutput[1]{Parágrafo corrigido: "O método proposto foi avaliado em três conjuntos de dados, e os resultados mostram uma melhoria significativa em comparação com a abordagem de referência." Correções efetuadas: \emph{foram → foi} (concordância entre sujeito e verbo com "método"); \emph{mostra → mostram} (concordância com "resultados"); \emph{referência → referência} (ortografia).}
+
+    \subsection*{Melhoria do Tom Académico e da Clareza}
+
+    \prompt[2]{Reescreve o seguinte parágrafo para que soe mais formal e conciso, adequado a uma tese, sem alterar o seu significado técnico nem introduzir informação nova: "Experimentámos várias configurações diferentes do modelo e algumas funcionaram bastante melhor do que outras, o que foi bastante interessante de ver."}
+
+    \aioutput[2]{"Foram avaliadas diversas configurações do modelo, tendo os resultados revelado uma variação considerável no desempenho entre configurações." Esta revisão substitui expressões informais (por exemplo, "experimentámos várias") por uma linguagem académica mais formal, remove comentários subjetivos ("bastante interessante") e torna a estrutura da frase mais concisa, preservando o significado original.}
+
+    \subsection*{Criação de Código}
+
+    \prompt[3]{Escreve uma função em Python que calcule o hash SHA-256 de um ficheiro, lendo-o em blocos de tamanho fixo, adequada para verificar a integridade de ficheiros de grande dimensão sem os carregar inteiramente para memória.}
+
+    \aioutput[3]{O assistente forneceu uma função em Python que calcula o hash SHA-256 de um ficheiro lendo-o em blocos de tamanho fixo, adequada para verificar a integridade de ficheiros de grande dimensão sem os carregar inteiramente para memória, conforme apresentado no \autoref{listing:sha256-example}.}
+
+    \begin{listing}[!htpb]
+    \caption{Exemplo de função gerada para calcular o hash SHA-256 de um ficheiro em blocos.}
+    \label{listing:sha256-example}
+    \begin{minted}{python}
+import hashlib
+
+def compute_sha256(file_path, chunk_size=65536):
+    sha256 = hashlib.sha256()
+    with open(file_path, "rb") as f:
+        for chunk in iter(lambda: f.read(chunk_size), b""):
+            sha256.update(chunk)
+    return sha256.hexdigest()
+    \end{minted}
+    \end{listing}
+
+    \subsection*{Apoio à Pesquisa Bibliográfica}
+
+    \prompt[4]{Estou a investigar [tema], podes ajudar-me a identificar abordagens comuns, limitações típicas e desafios em aberto referidos nesta área, para que eu próprio possa consultar as fontes originais?}
+
+    \aioutput[4]{As abordagens mais comuns nesta área agrupam-se, de um modo geral, em algumas categorias: métodos baseados em regras, simples de implementar e interpretar, mas frequentemente pouco flexíveis; métodos baseados em dados ou em aprendizagem, que se adaptam melhor a condições variadas mas exigem mais dados e recursos computacionais; e abordagens híbridas que combinam ambos. Entre os desafios em aberto mais referidos incluem-se a generalização limitada entre conjuntos de dados, a ausência de referências de avaliação padronizadas e a dificuldade em garantir a reprodutibilidade. Nota: esta visão geral serve apenas como ponto de partida — verifique cada fonte de forma independente antes de a citar, uma vez que as referências sugeridas pela IA podem ser imprecisas ou inventadas.}
+
+    \subsection*{Condensação de uma Secção}
+
+    \prompt[5]{Por favor, condensa a seguinte secção, removendo repetições de informação já apresentada anteriormente no documento, mantendo toda a informação essencial: "Neste capítulo, descreve-se a metodologia utilizada neste trabalho. Como referido anteriormente na introdução, o objetivo deste estudo é avaliar a abordagem proposta. Para tal, como já foi explicado, começa-se por recolher os dados, depois processam-se os dados e, por fim, analisam-se os resultados, o que, como referido antes, ajudará a responder à questão de investigação."}
+
+    \aioutput[5]{"Este capítulo detalha a metodologia utilizada para avaliar a abordagem proposta: recolha, processamento e análise dos dados." Foram removidas as referências repetidas a informação já apresentada na introdução (o objetivo do estudo e a sua relação com a questão de investigação), e o processo de três etapas foi condensado numa única frase, sem perda de informação essencial.}
+
+    \subsection*{Geração de Código LaTeX para uma Tabela de Cronograma}
+
+    \prompt[6]{Gera código LaTeX para uma tabela que apresente o cronograma de um projeto organizado em três fases (por exemplo, planeamento, desenvolvimento e avaliação), incluindo os principais marcos, formatada para caber numa única página em orientação horizontal.}
+
+    \aioutput[6]{O assistente gerou código LaTeX para uma tabela de cronograma em três fases, formatada com \texttt{booktabs} e envolvida num ambiente \texttt{landscape} para caber numa única página, conforme apresentado no \autoref{listing:timeline-example}.}
+
+    \begin{listing}[!htpb]
+    \caption{Exemplo de código LaTeX gerado para uma tabela de cronograma de projeto.}
+    \label{listing:timeline-example}
+    \begin{minted}{latex}
+\begin{landscape}
+\begin{table}[!htpb]
+\centering
+\caption{Project timeline.}
+\begin{tabular}{@{}lll@{}}
+\toprule
+Phase & Duration & Key Milestones \\
+\midrule
+Planning & Months 1--2 & Literature review; objectives defined \\
+Development & Months 3--6 & Prototype implemented; initial tests \\
+Evaluation & Months 7--8 & Results analysed; final report written \\
+\bottomrule
+\end{tabular}
+\end{table}
+\end{landscape}
+    \end{minted}
+    \end{listing}
+\else\ifnum\AppendixAILang=1
+    \section*{Ejemplo de Uso de IA}
+
+    \subsection*{Revisión Ortográfica y Gramatical}
+
+    \prompt[1]{Por favor, revisa el siguiente párrafo en busca de errores gramaticales y ortográficos, corrigiéndolo sin alterar su significado: "El método propuesto fueron evaluados en tres conjuntos de datos, y los resultados muestra una mejora significativa en comparación con el enfoke de referencia."}
+
+    \aioutput[1]{Párrafo corregido: "El método propuesto fue evaluado en tres conjuntos de datos, y los resultados muestran una mejora significativa en comparación con el enfoque de referencia." Correcciones realizadas: \emph{fueron → fue} (concordancia sujeto-verbo con "método"); \emph{muestra → muestran} (concordancia con "resultados"); \emph{enfoke → enfoque} (ortografía).}
+
+    \subsection*{Mejora del Tono Académico y la Claridad}
+
+    \prompt[2]{Reescribe el siguiente párrafo para que suene más formal y conciso, adecuado para una tesis, sin alterar su significado técnico ni introducir información nueva: "Probamos un montón de configuraciones diferentes del modelo y algunas funcionaron mucho mejor que otras, lo cual fue bastante interesante de ver."}
+
+    \aioutput[2]{"Se evaluaron varias configuraciones del modelo, y los resultados revelaron una variación considerable en el rendimiento entre configuraciones." Esta revisión sustituye expresiones informales (por ejemplo, "probamos un montón") por un lenguaje académico más formal, elimina comentarios subjetivos ("bastante interesante") y hace la estructura de la frase más concisa, preservando el significado original.}
+
+    \subsection*{Creación de Código}
+
+    \prompt[3]{Escribe una función en Python que calcule el hash SHA-256 de un archivo, leyéndolo en bloques de tamaño fijo, adecuada para verificar la integridad de archivos de gran tamaño sin cargarlos completamente en memoria.}
+
+    \aioutput[3]{El asistente proporcionó una función en Python que calcula el hash SHA-256 de un archivo leyéndolo en bloques de tamaño fijo, adecuada para verificar la integridad de archivos de gran tamaño sin cargarlos completamente en memoria, como se muestra en \autoref{listing:sha256-example}.}
+
+    \begin{listing}[!htpb]
+    \caption{Ejemplo de función generada para calcular el hash SHA-256 de un archivo en bloques.}
+    \label{listing:sha256-example}
+    \begin{minted}{python}
+import hashlib
+
+def compute_sha256(file_path, chunk_size=65536):
+    sha256 = hashlib.sha256()
+    with open(file_path, "rb") as f:
+        for chunk in iter(lambda: f.read(chunk_size), b""):
+            sha256.update(chunk)
+    return sha256.hexdigest()
+    \end{minted}
+    \end{listing}
+
+    \subsection*{Apoyo a la Búsqueda Bibliográfica}
+
+    \prompt[4]{Estoy investigando [tema], ¿puedes ayudarme a identificar enfoques comunes, limitaciones típicas y desafíos abiertos reportados en esta área, para que yo mismo pueda consultar las fuentes originales?}
+
+    \aioutput[4]{Los enfoques más comunes en esta área se agrupan, en general, en algunas categorías: métodos basados en reglas, sencillos de implementar e interpretar, pero a menudo poco flexibles; métodos basados en datos o en aprendizaje, que se adaptan mejor a condiciones variadas pero requieren más datos y recursos computacionales; y enfoques híbridos que combinan ambos. Entre los desafíos abiertos más citados se incluyen la generalización limitada entre conjuntos de datos, la falta de referencias de evaluación estandarizadas y la dificultad para garantizar la reproducibilidad. Nota: esta visión general es solo un punto de partida — verifique cada fuente de forma independiente antes de citarla, ya que las referencias sugeridas por la IA pueden ser inexactas o inventadas.}
+
+    \subsection*{Condensación de una Sección}
+
+    \prompt[5]{Por favor, condensa la siguiente sección, eliminando repeticiones de información ya presentada anteriormente en el documento, manteniendo toda la información esencial: "En este capítulo se describe la metodología utilizada en este trabajo. Como se mencionó anteriormente en la introducción, el objetivo de este estudio es evaluar el enfoque propuesto. Para ello, como ya se ha explicado, primero se recopilan los datos, después se procesan los datos y, finalmente, se analizan los resultados, lo cual, como se indicó antes, ayudará a responder la pregunta de investigación."}
+
+    \aioutput[5]{"Este capítulo detalla la metodología utilizada para evaluar el enfoque propuesto: recopilación, procesamiento y análisis de los datos." Se eliminaron las referencias repetidas a información ya presentada en la introducción (el objetivo del estudio y su relación con la pregunta de investigación), y el proceso de tres pasos se condensó en una sola frase, sin perder información esencial.}
+
+    \subsection*{Generación de Código LaTeX para una Tabla de Cronograma}
+
+    \prompt[6]{Genera código LaTeX para una tabla que presente el cronograma de un proyecto organizado en tres fases (por ejemplo, planificación, desarrollo y evaluación), incluyendo los hitos principales, formateada para caber en una sola página en orientación horizontal.}
+
+    \aioutput[6]{El asistente generó código LaTeX para una tabla de cronograma en tres fases, formateada con \texttt{booktabs} y envuelta en un entorno \texttt{landscape} para caber en una sola página, como se muestra en \autoref{listing:timeline-example}.}
+
+    \begin{listing}[!htpb]
+    \caption{Ejemplo de código LaTeX generado para una tabla de cronograma de proyecto.}
+    \label{listing:timeline-example}
+    \begin{minted}{latex}
+\begin{landscape}
+\begin{table}[!htpb]
+\centering
+\caption{Project timeline.}
+\begin{tabular}{@{}lll@{}}
+\toprule
+Phase & Duration & Key Milestones \\
+\midrule
+Planning & Months 1--2 & Literature review; objectives defined \\
+Development & Months 3--6 & Prototype implemented; initial tests \\
+Evaluation & Months 7--8 & Results analysed; final report written \\
+\bottomrule
+\end{tabular}
+\end{table}
+\end{landscape}
+    \end{minted}
+    \end{listing}
+\else
+    \section*{Sample AI Interaction}
+
+    \subsection*{Grammar and Spelling Check}
+
+    \prompt[1]{Please review the following paragraph for grammar and spelling errors, and correct it without changing its meaning: "The proposed method were evaluated across three datasets, and the results shows a significant improvement compared to the baseline aproach."}
+
+    \aioutput[1]{Corrected paragraph: "The proposed method was evaluated across three datasets, and the results show a significant improvement compared to the baseline approach." Corrections made: \emph{were → was} (subject–verb agreement with "method"); \emph{shows → show} (agreement with "results"); \emph{aproach → approach} (spelling).}
+
+    \subsection*{Improving Academic Tone and Clarity}
+
+    \prompt[2]{Rewrite the following paragraph so that it reads as more formal and concise for a thesis, without altering its technical meaning or introducing new information: "We tried out a bunch of different settings for the model and some of them worked way better than others, which was pretty interesting to see."}
+
+    \aioutput[2]{"Several configurations of the model were evaluated, and the results revealed considerable variation in performance across settings." This revision replaces informal phrasing (e.g., "tried out a bunch of") with more formal academic language, removes subjective commentary ("pretty interesting"), and tightens the sentence structure while preserving the original meaning.}
+
+    \subsection*{Code Creation}
+
+    \prompt[3]{Write a Python function that computes the SHA-256 hash of a file by reading it in fixed-size chunks, suitable for verifying the integrity of large files without loading them entirely into memory.}
+
+    \aioutput[3]{The assistant provided a Python function that computes the SHA-256 hash of a file by reading it in fixed-size chunks, suitable for verifying the integrity of large files without loading them entirely into memory, as shown in \autoref{listing:sha256-example}.}
+
+    \begin{listing}[!htpb]
+    \caption{Example function generated to compute a file's SHA-256 hash in chunks.}
+    \label{listing:sha256-example}
+    \begin{minted}{python}
+import hashlib
+
+def compute_sha256(file_path, chunk_size=65536):
+    sha256 = hashlib.sha256()
+    with open(file_path, "rb") as f:
+        for chunk in iter(lambda: f.read(chunk_size), b""):
+            sha256.update(chunk)
+    return sha256.hexdigest()
+    \end{minted}
+    \end{listing}
+
+    \subsection*{Literature Search Support}
+
+    \prompt[4]{I'm researching [topic], can you help me identify common approaches, typical limitations, and open challenges reported in this area, so I can look into the original sources myself?}
+
+    \aioutput[4]{Common approaches in this area generally fall into a few categories: rule-based methods, which are simple to implement and interpret but often lack flexibility; data-driven or learning-based methods, which adapt better to varied conditions but require more data and computational resources; and hybrid approaches that combine both. Frequently reported open challenges include limited generalisation across datasets, a lack of standardised evaluation benchmarks, and difficulty ensuring reproducibility. Note: this overview is a starting point for orientation only — verify each source independently before citing it, as AI-suggested references may be inaccurate or fabricated.}
+
+    \subsection*{Condensing a Section}
+
+    \prompt[5]{Please condense the following section, removing repetition of details already covered earlier in the document, while keeping all essential information: "In this chapter, we describe the methodology used in this work. As mentioned previously in the introduction, the goal of this study is to evaluate the proposed approach. To do this, as already explained, we first collect the data, then we process the data, and finally we analyse the results, which, as stated before, will help us answer the research question."}
+
+    \aioutput[5]{"This chapter details the methodology used to evaluate the proposed approach: data collection, processing, and analysis of the results." The repeated references to material already covered in the introduction (the study's goal and its connection to the research question) were removed, and the three-step process was condensed into a single sentence, without losing any essential information.}
+
+    \subsection*{Generating LaTeX Table Code for a Project Timeline}
+
+    \prompt[6]{Generate LaTeX code for a table presenting a project timeline organized into three phases (e.g., planning, development, evaluation), including key milestones, formatted to fit a single page in landscape orientation.}
+
+    \aioutput[6]{The assistant generated LaTeX code for a three-phase project timeline table, formatted with \texttt{booktabs} and wrapped in a \texttt{landscape} environment so it fits a single page, as shown in \autoref{listing:timeline-example}.}
+
+    \begin{listing}[!htpb]
+    \caption{Example LaTeX code generated for a project timeline table.}
+    \label{listing:timeline-example}
+    \begin{minted}{latex}
+\begin{landscape}
+\begin{table}[!htpb]
+\centering
+\caption{Project timeline.}
+\begin{tabular}{@{}lll@{}}
+\toprule
+Phase & Duration & Key Milestones \\
+\midrule
+Planning & Months 1--2 & Literature review; objectives defined \\
+Development & Months 3--6 & Prototype implemented; initial tests \\
+Evaluation & Months 7--8 & Results analysed; final report written \\
+\bottomrule
+\end{tabular}
+\end{table}
+\end{landscape}
+    \end{minted}
+    \end{listing}
+\fi\fi

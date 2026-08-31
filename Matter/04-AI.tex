@@ -1,59 +1,49 @@
 \ifthenelse{\equal{\AiAckOption}{true}}{%
     \ifthenelse{\equal{\LanguageOption}{portuguese}}{%
-        \chapter*{Declaração sobre o Uso de Inteligência Artificial}
+        \phantomsection
+        \addcontentsline{toc}{chapter}{Declaração de Utilização de Inteligência Artificial}
+        \chapter*{Declaração de Utilização de Inteligência Artificial}
 
         \guideinfo{É uma boa prática académica indicar brevemente como, porquê e quando a IA foi utilizada. Explicar as ações tomadas e as razões que lhes estão subjacentes promove a reflexão crítica, aprofunda a compreensão do papel da IA na aprendizagem e ajuda a avaliar o seu impacto na qualidade e integridade do trabalho. Esta página pode ser removida definindo a opção \texttt{aiack} como \texttt{false} nas opções da classe do documento.}
-    
+
         \vspace{2em}
-        
-        \exampleinfo{%
-        Reconheço a utilização do ChatGPT (\url{https://chatgpt.com}) para aperfeiçoar o tom académico e melhorar a precisão linguística deste trabalho, incluindo aspectos de gramática, pontuação e vocabulário.
-        
-        \vspace{1em}
-        
-        \noindent\textbf{Descrição da Utilização}
-        
-        \prompt[1]{Num parágrafo, descreva simplesmente o que é o LaTeX.}
-        
-        \aioutput[1]{O LaTeX é um sistema de composição de alta qualidade, normalmente utilizado para produzir documentos científicos e matemáticos, devido ao seu poderoso manuseamento de fórmulas e bibliografias. Ao contrário dos processadores de texto, utiliza ficheiros de texto simples com etiquetas de marcação para definir a estrutura e a formatação de um documento, permitindo um controlo preciso da disposição e do aspeto. É especialmente popular no meio académico e na investigação para a criação de teses, artigos de revistas e apresentações.}
-        }
+
+        Durante a elaboração desta tese, o autor recorreu a ferramentas baseadas em inteligência artificial para apoio em tarefas específicas, nomeadamente: \textcolor{blue}{[} organização estrutural do trabalho, escrita e desenvolvimento de conteúdos, desenvolvimento de código e scripts, e revisão e edição de texto \textcolor{blue}{] (adapte de forma a refletir a sua utilização real de IA)}. Todas as decisões relativas à orientação, âmbito, metodologia e conclusões do trabalho foram da exclusiva responsabilidade do autor, que exerceu julgamento crítico e conhecimento especializado ao longo de todo o processo.
+
+        Todo o conteúdo gerado ou co-produzido com recurso a IA foi revisto, validado e reformulado pelo autor antes da sua inclusão no trabalho. O documento final reflete fielmente a compreensão, a análise e o contributo académico do próprio autor. O autor assume integral responsabilidade pela integridade e rigor de todo o conteúdo apresentado. Para garantir a responsabilização, o \autoref{cp:appendix-ai} documenta todas as interações relevantes com ferramentas de IA que contribuíram para a elaboração deste trabalho.
+
+        A presente declaração é feita em nome da transparência relativamente à utilização da inteligência artificial como ferramenta de apoio ao trabalho académico, em conformidade com o documento "Utilização responsável da inteligência artificial na comunidade académica: políticas, princípios e orientações", da Universidade de Leiria e Oeste (https://doi.org/10.25766/tgcv-1q52).
+
     }{\ifthenelse{\equal{\LanguageOption}{spanish}}{%
+        \phantomsection
+        \addcontentsline{toc}{chapter}{Declaración sobre el Uso de Inteligencia Artificial}
         \chapter*{Declaración sobre el Uso de Inteligencia Artificial}
 
         \guideinfo{Es una buena práctica académica indicar brevemente cómo, por qué y cuándo se utilizó la IA. Explicar las acciones tomadas y las razones detrás de ellas fomenta la reflexión crítica, profundiza la comprensión del papel de la IA en el aprendizaje y ayuda a evaluar su impacto en la calidad e integridad del trabajo. Esta página puede eliminarse configurando la opción \texttt{aiack} como \texttt{false} en las opciones de clase del documento.}
-    
+
         \vspace{2em}
-        
-        \exampleinfo{%
-        Reconozco el uso de ChatGPT (\url{https://chatgpt.com}) para perfeccionar el tono académico y mejorar la precisión lingüística de este trabajo, incluyendo aspectos de gramática, puntuación y vocabulario.
-        
-        \vspace{1em}
-        
-        \noindent\textbf{Descripción del Uso}
-        
-        \prompt[1]{En un párrafo, describa simplemente qué es LaTeX.}
-        
-        \aioutput[1]{LaTeX es un sistema de composición tipográfica de alta calidad, comúnmente utilizado para producir documentos científicos y matemáticos debido a su potente manejo de fórmulas y bibliografías. A diferencia de los procesadores de texto, utiliza archivos de texto plano con etiquetas de marcado para definir la estructura y el formato de un documento, permitiendo un control preciso sobre la disposición y apariencia. Es especialmente popular en el ámbito académico y de investigación para la creación de tesis, artículos de revistas y presentaciones.}
-        }
+
+        Durante la elaboración de esta tesis, el autor utilizó herramientas basadas en inteligencia artificial para apoyar tareas específicas, a saber: \textcolor{blue}{[} la organización estructural del trabajo, la redacción y el desarrollo de contenido, el desarrollo de código y scripts, y la revisión y edición del texto \textcolor{blue}{] (adapte esto para reflejar su uso real de la IA)}. Todas las decisiones relativas a la orientación, el alcance, la metodología y las conclusiones del trabajo fueron responsabilidad exclusiva del autor, quien ejerció un juicio crítico y conocimientos especializados a lo largo de todo el proceso.
+
+        Todo el contenido generado o coproducido mediante IA fue revisado, validado y reformulado por el autor antes de su inclusión en el trabajo. El documento final refleja fielmente la comprensión, el análisis y la contribución académica del autor. El autor asume la plena responsabilidad de la integridad y la exactitud de todo el contenido presentado. Para garantizar la responsabilidad, el \autoref{cp:appendix-ai} documenta todas las interacciones relevantes con herramientas de IA que contribuyeron a la elaboración de este trabajo.
+
+        Esta declaración se realiza en aras de la transparencia respecto al uso de la inteligencia artificial como herramienta de apoyo al trabajo académico, de conformidad con el documento «Utilização responsável da inteligência artificial na comunidade académica: políticas, princípios e orientações», de la Universidad de Leiria y Oeste (https://doi.org/10.25766/tgcv-1q52).
+
     }{%
-        \chapter*{AI Acknowledgement}
+        \phantomsection
+        \addcontentsline{toc}{chapter}{Declaration on the Use of Artificial Intelligence}
+        \chapter*{Declaration on the Use of Artificial Intelligence}
 
         \guideinfo{It is good academic practice to briefly state how, why, and when AI was used. Explaining both the actions taken and the reasons behind them encourages critical reflection, deepens understanding of AI's role in learning, and supports the evaluation of its impact on your work's quality and integrity. This page can be removed by setting the option \texttt{aiack} to \texttt{false} in the document class options.}
 
         \vspace{2em}
-        
-        \exampleinfo{%
-        I acknowledge the use of ChatGPT (\url{https://chatgpt.com}) to refine the academic tone and improve the linguistic accuracy of this work, including aspects of grammar, punctuation, and vocabulary.
-        
-        \vspace{1em}
-        
-        \noindent\textbf{Description of Use}
-        
-        \prompt[1]{In a paragraph, simply describe what LaTeX is.}
-        
-        \aioutput[1]{LaTeX is a high-quality typesetting system commonly used for producing scientific and mathematical documents due to its powerful handling of formulas and bibliographies. Unlike word processors, it uses plain text files with markup tags to define the structure and formatting of a document, allowing precise control over layout and appearance. It is especially popular in academia and research for creating theses, journal articles, and presentations.}
-        }
+
+            During the preparation of this thesis, the author made use of AI-based tools to assist with specific tasks, including \textcolor{blue}{[} structural organisation, content writing and drafting, code and script development, and reviewing and editing of text \textcolor{blue}{] (adapt to reflect your actual use of AI)}. All decisions regarding the direction, scope, methodology, and conclusions of this work remained entirely with the author, who exercised continuous critical judgment and domain expertise throughout.
+
+            All AI-generated or AI-assisted content was reviewed, validated, and revised by the author prior to inclusion. The final document accurately reflects the author's own understanding, analysis, and academic contribution. The author assumes full responsibility for the integrity and accuracy of all content presented herein. To ensure accountability, \autoref{cp:appendix-ai} documents all relevant interactions with AI tools that contributed to the preparation of this work.
+
+            This statement is made in the interest of transparency regarding the use of artificial intelligence as a tool to support academic work, in accordance with the document "Responsible use of artificial intelligence in the academic community: policies, principles and guidelines", from the University of Leiria and Oeste (\url{https://doi.org/10.25766/tgcv-1q52}).
     }}
-    
-    \MediaOptionLogicBlank   
+
+    \MediaOptionLogicBlank
 }{}

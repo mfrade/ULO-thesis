@@ -6,74 +6,74 @@
 
 %%% Class Information %%%
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{IPLeiriaThesis}[2023/12/12 IPLeiria Thesis Class]
+\ProvidesClass{ULOThesis}[2023/12/12 ULO Thesis Class]
 
 \RequirePackage{expl3} % Required for writing LaTeX3 code in this class.
 
 %%% Handle Class Options %%%
 \ExplSyntaxOn
 
-\cs_new:Npn \IPLeiriaThesis_check_color:n #1 {
+\cs_new:Npn \ULOThesis_check_color:n #1 {
   \tl_set:Nn \l_tmpa_tl { #1 }
   \color_set:nn { \l_tmpa_tl } { #1 }
 }
 
-\keys_define:nn { IPLeiriaThesis } {
+\keys_define:nn { ULOThesis } {
     school .choices:nn =
         { estg, esecs, esslei, esad, estm, utnfrba }
-        { \tl_gset:Nn \g_IPLeiriaThesis_myschool_tl { #1 } },
+        { \tl_gset:Nn \g_ULOThesis_myschool_tl { #1 } },
     school / unknown .code:n = 
-        { \ClassWarningNoLine{IPLeiriaThesis}
+        { \ClassWarningNoLine{ULOThesis}
         {Specified~'school'~not~available.~Defaulting~to~'estg'} },
     school .default:n = { estg },
     school .initial:n = { estg },
 
     coverstyle .choices:nn =
         { classic, bw }
-        { \tl_gset:Nn \g_IPLeiriaThesis_mycover_tl { #1 } },
+        { \tl_gset:Nn \g_ULOThesis_mycover_tl { #1 } },
     coverstyle / unknown .code:n = 
-        { \ClassWarningNoLine{IPLeiriaThesis}{Specified~'coverstyle'~not~available.~Defaulting~to~'classic'} },
+        { \ClassWarningNoLine{ULOThesis}{Specified~'coverstyle'~not~available.~Defaulting~to~'classic'} },
     coverstyle .default:n = { classic },
     coverstyle .initial:n = { classic },
 
     language .choices:nn = 
         { english, portuguese, spanish } 
-        { \tl_gset:Nn \g_IPLeiriaThesis_mylanguage_tl { #1 } },
+        { \tl_gset:Nn \g_ULOThesis_mylanguage_tl { #1 } },
     language / unknown .code:n = 
-        { \ClassWarningNoLine{IPLeiriaThesis}{Specified~'language'~not~available.~Defaulting~to~'english'} },
+        { \ClassWarningNoLine{ULOThesis}{Specified~'language'~not~available.~Defaulting~to~'english'} },
     language .default:n = { english },
     language .initial:n = { english },
 
     chapterstyle .choices:nn = 
         { classic, fancy, modern } 
-        { \tl_gset:Nn \g_IPLeiriaThesis_style_tl { #1 } },
+        { \tl_gset:Nn \g_ULOThesis_style_tl { #1 } },
     chapterstyle / unknown .code:n = 
-        { \ClassWarningNoLine{IPLeiriaThesis}{Specified~'chapterstyle'~not~available.~Defaulting~to~'classic'} },
+        { \ClassWarningNoLine{ULOThesis}{Specified~'chapterstyle'~not~available.~Defaulting~to~'classic'} },
     chapterstyle .default:n = { classic },
     chapterstyle .initial:n = { classic },
 
     docstage .choices:nn = 
         { working, final } 
-        { \tl_gset:Nn \g_IPLeiriaThesis_docstage_tl { #1 } },
+        { \tl_gset:Nn \g_ULOThesis_docstage_tl { #1 } },
     docstage / unknown .code:n = 
-        { \ClassWarningNoLine{IPLeiriaThesis}{Specified~'docstage'~not~available.~Defaulting~to~'working'} },
+        { \ClassWarningNoLine{ULOThesis}{Specified~'docstage'~not~available.~Defaulting~to~'working'} },
     docstage .default:n = { working },
     docstage .initial:n = { working },
 
     media .choices:nn = 
         { paper, screen } 
-        { \tl_gset:Nn \g_IPLeiriaThesis_media_tl { #1 } },
+        { \tl_gset:Nn \g_ULOThesis_media_tl { #1 } },
     media / unknown .code:n = 
-        { \ClassWarningNoLine{IPLeiriaThesis}{Specified~'media'~not~available.~Defaulting~to~'paper'} },
+        { \ClassWarningNoLine{ULOThesis}{Specified~'media'~not~available.~Defaulting~to~'paper'} },
     media .default:n = { paper },
     media .initial:n = { paper },
 
     linkcolor .code:n = {
-        \tl_gset:Nn \g_IPLeiriaThesis_linkcolor_tl { #1 }
-        \IPLeiriaThesis_check_color:n { #1 }
+        \tl_gset:Nn \g_ULOThesis_linkcolor_tl { #1 }
+        \ULOThesis_check_color:n { #1 }
         \tl_if_eq:NNTF \l_tmpa_tl \q_no_value {
-            \tl_gset:Nn \g_IPLeiriaThesis_linkcolor_tl { black }
-            \ClassWarningNoLine{IPLeiriaThesis}{Specified~'linkcolor'~not~available.~Defaulting~to~'black'}
+            \tl_gset:Nn \g_ULOThesis_linkcolor_tl { black }
+            \ClassWarningNoLine{ULOThesis}{Specified~'linkcolor'~not~available.~Defaulting~to~'black'}
         }
     },
     linkcolor .default:n = { black },
@@ -81,53 +81,53 @@
 
     doctype .choices:nn = 
         { thesis, report } 
-        { \tl_gset:Nn \g_IPLeiriaThesis_doctype_tl { #1 } },
+        { \tl_gset:Nn \g_ULOThesis_doctype_tl { #1 } },
     doctype / unknown .code:n = 
-        { \ClassWarningNoLine{IPLeiriaThesis}{Specified~'doctype'~not~available.~Defaulting~to~'thesis'} },
+        { \ClassWarningNoLine{ULOThesis}{Specified~'doctype'~not~available.~Defaulting~to~'thesis'} },
     doctype .default:n = { thesis },
     doctype .initial:n = { thesis },
 
     bookprint .choices:nn = 
         { true, false } 
-        { \tl_gset:Nn \g_IPLeiriaThesis_bookprint_tl { #1 } },
+        { \tl_gset:Nn \g_ULOThesis_bookprint_tl { #1 } },
     bookprint / unknown .code:n = 
-        { \ClassWarningNoLine{IPLeiriaThesis}{Specified~'bookprint'~not~available.~Defaulting~to~'false'} },
+        { \ClassWarningNoLine{ULOThesis}{Specified~'bookprint'~not~available.~Defaulting~to~'false'} },
     bookprint .default:n = { false },
     bookprint .initial:n = { false },
 
     aiacknowledgement .choices:nn = 
         { true, false } 
-        { \tl_gset:Nn \g_IPLeiriaThesis_aiacknowledgement_tl { #1 } },
+        { \tl_gset:Nn \g_ULOThesis_aiacknowledgement_tl { #1 } },
     aiacknowledgement / unknown .code:n = 
-        { \ClassWarningNoLine{IPLeiriaThesis}{Specified~'aiacknowledgement'~not~available.~Defaulting~to~'true'} },
+        { \ClassWarningNoLine{ULOThesis}{Specified~'aiacknowledgement'~not~available.~Defaulting~to~'true'} },
     aiacknowledgement .default:n = { true },
     aiacknowledgement .initial:n = { true },
 
     listprefix .choices:nn = 
         { true, false } 
-        { \tl_gset:Nn \g_IPLeiriaThesis_listprefix_tl { #1 } },
+        { \tl_gset:Nn \g_ULOThesis_listprefix_tl { #1 } },
     listprefix / unknown .code:n = 
-        { \ClassWarningNoLine{IPLeiriaThesis}{Specified~'listprefix'~not~available.~Defaulting~to~'false'} },
+        { \ClassWarningNoLine{ULOThesis}{Specified~'listprefix'~not~available.~Defaulting~to~'false'} },
     listprefix .default:n = { false },
     listprefix .initial:n = { false },
     
     unknown .code:n = 
-        { \ClassWarningNoLine{IPLeiriaThesis}{An~unknown~option~was~ignored.~Please~check~the~documentation~to~see~the~available~options} }
+        { \ClassWarningNoLine{ULOThesis}{An~unknown~option~was~ignored.~Please~check~the~documentation~to~see~the~available~options} }
 }
 
-\newcommand{\LanguageOption}{\g_IPLeiriaThesis_mylanguage_tl}
-\newcommand{\SchoolOption}{\g_IPLeiriaThesis_myschool_tl}
-\newcommand{\CoverOption}{\g_IPLeiriaThesis_mycover_tl}
-\newcommand{\ChapterOption}{\g_IPLeiriaThesis_style_tl}
-\newcommand{\DocStageOption}{\g_IPLeiriaThesis_docstage_tl}
-\newcommand{\MediaOption}{\g_IPLeiriaThesis_media_tl}
-\newcommand{\ColorOption}{\g_IPLeiriaThesis_linkcolor_tl}
-\newcommand{\DocTypeOption}{\g_IPLeiriaThesis_doctype_tl}
-\newcommand{\BookPrintOption}{\g_IPLeiriaThesis_bookprint_tl}
-\newcommand{\AiAckOption}{\g_IPLeiriaThesis_aiacknowledgement_tl}
-\newcommand{\ListPrefixOption}{\g_IPLeiriaThesis_listprefix_tl}
+\newcommand{\LanguageOption}{\g_ULOThesis_mylanguage_tl}
+\newcommand{\SchoolOption}{\g_ULOThesis_myschool_tl}
+\newcommand{\CoverOption}{\g_ULOThesis_mycover_tl}
+\newcommand{\ChapterOption}{\g_ULOThesis_style_tl}
+\newcommand{\DocStageOption}{\g_ULOThesis_docstage_tl}
+\newcommand{\MediaOption}{\g_ULOThesis_media_tl}
+\newcommand{\ColorOption}{\g_ULOThesis_linkcolor_tl}
+\newcommand{\DocTypeOption}{\g_ULOThesis_doctype_tl}
+\newcommand{\BookPrintOption}{\g_ULOThesis_bookprint_tl}
+\newcommand{\AiAckOption}{\g_ULOThesis_aiacknowledgement_tl}
+\newcommand{\ListPrefixOption}{\g_ULOThesis_listprefix_tl}
 
-\ProcessKeyOptions[IPLeiriaThesis]
+\ProcessKeyOptions[ULOThesis]
 \ExplSyntaxOff
 
 %%% Load Master Class %%%
@@ -156,7 +156,9 @@
 \RequirePackage{titlesec} % Customisation of section and chapter titles.
 \RequirePackage{titling} % Control over title and titlepage formatting.
 \RequirePackage[toc,page]{appendix} % Formatting for appendices.
-\RequirePackage[bookmarks,pdfusetitle]{hyperref} % Hyperlinks and PDF metadata.
+\RequirePackage[bookmarks,pdfusetitle,pdfview=FitH]{hyperref} % Hyperlinks and PDF metadata.
+    % pdfview=FitH: internal links/bookmarks fit the page width instead of
+    % jumping to a raw (x,y) coordinate at the viewer's current zoom level.
 \RequirePackage[symbols,acronym]{glossaries} % Create glossaries and acronyms.
 \RequirePackage[calc,datesep={/}]{datetime2} % Enhanced date and time formatting.
 \RequirePackage{xparse} % Advanced argument parsing for custom macros.

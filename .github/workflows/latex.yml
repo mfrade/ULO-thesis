@@ -25,7 +25,7 @@ jobs:
       - name: LaTeX Document Compilation
         uses: xu-cheng/latex-action@v3
         with:
-          root_file: IPLeiriaMain.tex
+          root_file: ULOMain.tex
           latexmk_use_xelatex: true
           latexmk_shell_escape: true
           extra_fonts: |
