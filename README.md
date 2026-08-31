@@ -42,7 +42,7 @@ This template is a fork of <a href="https://github.com/joseareia/ipleiria-thesis
 This template can be compiled locally using either `latexmk` or `rubber` — see the included [Makefile](Makefile) and [.latexmkrc](.latexmkrc) for the available build commands. Refer to the in-document "Comprehensive User Guide" chapter (built into the template itself) for detailed instructions on customising metadata, chapters, and class options.
 
 ## Getting Help
-If you have any questions regarding the template, its usage, or encounter any errors you're struggling with, please feel free to open an [issue](https://github.com/mfrade/ULO-thesis/issues) or email me at <a href="mailto:miguel.frade@ulo.pt">miguel.frade@ulo.pt</a>.
+If you have any questions regarding the template, its usage, or encounter any errors you're struggling with, please feel free to open an [issue](https://github.com/mfrade/ULO-thesis/issues).
 
 ## Contributing
 Contributions to this template are welcome! If you encounter any issues, have suggestions for improvements, or would like to add new features, please submit a [pull request](https://github.com/mfrade/ULO-thesis/pulls). We appreciate your feedback and contributions to make this template even better.
