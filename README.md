@@ -34,6 +34,8 @@ This repository contains all the <b>source code for the template</b>, organised 
 </p>
 
 ## Origin and Attribution
+**Forked From:** [github.com/joseareia/ipleiria-thesis](https://github.com/joseareia/ipleiria-thesis)
+
 This template is a fork of <a href="https://github.com/joseareia/ipleiria-thesis" target="_blank">IPLeiria Thesis</a>, originally created by <a href="https://github.com/joseareia" target="_blank">José Areia</a> for the Polytechnic University of Leiria. It has been adapted here for the University of Leiria and Oeste (ULO): institution branding and logos, document class and file naming, and several structural and content changes throughout. All credit for the original design and engineering of the template goes to José Areia — please consider starring the [original repository](https://github.com/joseareia/ipleiria-thesis) as well. See [CHANGELOG.md](CHANGELOG.md) for a full list of differences from the upstream template.
 
 ## Installation and Documentation

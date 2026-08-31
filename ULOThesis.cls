@@ -1,8 +1,9 @@
 % Author Name: José Areia 
 % Author Contact: jose.apareia@gmail.com
 % Version: 2.2.13 - 2026/01/06
-% Public Repository: https://github.com/joseareia/ipleiria-thesis
-% Wiki/Getting Help: https://github.com/joseareia/ipleiria-thesis/wiki
+% Public Repository: https://github.com/mfrade/ULO-thesis
+% Getting Help: https://github.com/mfrade/ULO-thesis/issues
+% Forked From: https://github.com/joseareia/ipleiria-thesis
 
 %%% Class Information %%%
 \NeedsTeXFormat{LaTeX2e}
