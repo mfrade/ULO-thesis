@@ -15,7 +15,7 @@
     <a href="https://www.latex-project.org/lppl/lppl-1-3c"><img src="https://img.shields.io/badge/License-LPPL%20v1.3c-yellow.svg?style=flat-square"></a>
     <a href="https://github.com/mfrade/ULO-thesis/releases"><img src="https://img.shields.io/github/v/tag/mfrade/ULO-thesis?style=flat-square&label=Release&color=8892BF"></a>
     <a href="https://github.com/mfrade/ULO-thesis/graphs/commit-activity"><img src="https://img.shields.io/badge/Maintained-Yes-brightgreen.svg?style=flat-square"></a>
-    <a href=""><img src="https://img.shields.io/badge/Build-Passing-brightgreen.svg?style=flat-square"></a>
+    <a href="https://github.com/mfrade/ULO-thesis/actions/workflows/latex.yml"><img src="https://github.com/mfrade/ULO-thesis/actions/workflows/latex.yml/badge.svg?branch=master" alt="Build status"></a>
 </p>
 <br/>
 
@@ -24,9 +24,9 @@
 </p>
 
 <p align="center">
-  <img src="Assets/01_B.png" width="273"/>
-  <img src="Assets/02_B.png" width="273"/>
-  <img src="Assets/03_B.png" width="273"/>
+  <a href="https://mfrade.github.io/ULO-thesis/page-1.png"><img src="https://mfrade.github.io/ULO-thesis/page-1.png" width="273" alt="Rendered PDF page 1"></a>
+  <a href="https://mfrade.github.io/ULO-thesis/page-15.png"><img src="https://mfrade.github.io/ULO-thesis/page-15.png" width="273" alt="Rendered PDF page 15"></a>
+  <a href="https://mfrade.github.io/ULO-thesis/page-28.png"><img src="https://mfrade.github.io/ULO-thesis/page-28.png" width="273" alt="Rendered PDF page 28"></a>
 </p>
 
 <p float="left">
@@ -40,6 +40,8 @@ This template is a fork of <a href="https://github.com/joseareia/ipleiria-thesis
 
 ## Installation and Documentation
 This template can be compiled locally using either `latexmk` or `rubber` — see the included [Makefile](Makefile) and [.latexmkrc](.latexmkrc) for the available build commands. Refer to the in-document "Comprehensive User Guide" chapter (built into the template itself) for detailed instructions on customising metadata, chapters, and class options.
+
+The latest PDF built successfully is available [directly through GitHub Pages](https://mfrade.github.io/ULO-thesis/ULOMain.pdf).
 
 ## Getting Help
 If you have any questions regarding the template, its usage, or encounter any errors you're struggling with, please feel free to open an [issue](https://github.com/mfrade/ULO-thesis/issues).

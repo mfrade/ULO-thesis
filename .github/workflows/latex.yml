@@ -10,12 +10,14 @@ on:
       - 'Assets/**'
   pull_request:
     paths-ignore:
-        - '**/README.md'
-        - '**/LICENSE'
-        - '**/.gitignore'
-        - '**/.gitattributes'
-        - '**/Makefile'
-        - 'Assets/**'
+      - '**/README.md'
+      - '**/LICENSE'
+      - '**/.gitignore'
+      - '**/.gitattributes'
+      - '**/Makefile'
+      - 'Assets/**'
+permissions:
+  contents: read
 jobs:
   build_latex:
     runs-on: ubuntu-latest
@@ -31,3 +33,55 @@ jobs:
           extra_fonts: |
             ./Configurations/Fonts/*.ttf
             ./Configurations/Fonts/*.otf
+      - name: Upload compiled PDF
+        uses: actions/upload-artifact@v4
+        with:
+          name: ULOMain-pdf
+          path: ULOMain.pdf
+          if-no-files-found: error
+          retention-days: 90
+      - name: Configure GitHub Pages
+        if: github.event_name == 'push'
+        uses: actions/configure-pages@v5
+      - name: Install Poppler utilities
+        if: github.event_name == 'push'
+        run: sudo apt-get update && sudo apt-get install --no-install-recommends -y poppler-utils
+      - name: Prepare GitHub Pages site
+        if: github.event_name == 'push'
+        run: |
+          mkdir -p _site
+          cp ULOMain.pdf _site/ULOMain.pdf
+          for page in 1 15 28; do
+            pdftoppm -png -singlefile -f "$page" -l "$page" -r 144 ULOMain.pdf "_site/page-${page}"
+          done
+      - name: Upload preview PNGs
+        if: github.event_name == 'push'
+        uses: actions/upload-artifact@v4
+        with:
+          name: ULOMain-previews
+          path: |
+            _site/page-1.png
+            _site/page-15.png
+            _site/page-28.png
+          if-no-files-found: error
+      - name: Upload GitHub Pages artifact
+        if: github.event_name == 'push'
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+
+  deploy_pages:
+    if: github.event_name == 'push'
+    needs: build_latex
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
