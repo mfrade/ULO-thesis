@@ -16,6 +16,10 @@ All notable differences between this fork and the upstream [IPLeiria Thesis](htt
 - `Chapters/Appendices/00-AppendixA.tex` → `Chapters/Appendices/00-AppendixAI.tex`
 - Build tooling (`Makefile`, `.latexmkrc`, GitHub Actions workflow) updated to match.
 
+## Versioning
+
+- The template has its own version numbering, defined once in `\TemplateVersion` (`ULOMain.tex`) and used in the class and in Chapter 1. Version 1.0.0 is the fork as first published; 2.0.0 adds the changes below (LuaLaTeX, language handling, metadata fields). It is based on IPLeiria Thesis 2.2.13.
+
 ## Build
 
 - Switched the TeX engine from XeLaTeX to LuaLaTeX (`.latexmkrc`, `Makefile` rubber target, and GitHub Actions workflow). The landscape-mode geometry patch now maps `\pdfpagewidth`/`\pdfpageheight` to LuaTeX's `\pagewidth`/`\pageheight`.

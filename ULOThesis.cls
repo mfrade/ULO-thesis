@@ -1,13 +1,14 @@
 % Author Name: José Areia 
 % Author Contact: jose.apareia@gmail.com
-% Version: 2.2.13 - 2026/01/06
+% Version: see \TemplateVersion in ULOMain.tex (based on IPLeiria Thesis 2.2.13)
 % Public Repository: https://github.com/mfrade/ULO-thesis
 % Getting Help: https://github.com/mfrade/ULO-thesis/issues
 % Forked From: https://github.com/joseareia/ipleiria-thesis
 
 %%% Class Information %%%
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{ULOThesis}[2023/12/12 ULO Thesis Class]
+\providecommand{\TemplateVersion}{unknown} % Normally defined in ULOMain.tex.
+\ProvidesClass{ULOThesis}[2026/10/23 v\TemplateVersion\space ULO Thesis Class]
 
 \RequirePackage{expl3} % Required for writing LaTeX3 code in this class.
 
