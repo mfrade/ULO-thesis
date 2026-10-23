@@ -27,7 +27,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Setup Git Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
       - name: LaTeX Document Compilation
         uses: xu-cheng/latex-action@v3
         with:
@@ -38,7 +38,7 @@ jobs:
             ./Configurations/Fonts/*.ttf
             ./Configurations/Fonts/*.otf
       - name: Upload compiled PDF
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: ULOMain-pdf
           path: ULOMain.pdf
@@ -46,7 +46,7 @@ jobs:
           retention-days: 90
       - name: Configure GitHub Pages
         if: github.event_name != 'pull_request'
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
       - name: Install Poppler utilities
         if: github.event_name != 'pull_request'
         run: sudo apt-get update && sudo apt-get install --no-install-recommends -y poppler-utils
@@ -60,7 +60,7 @@ jobs:
           done
       - name: Upload preview PNGs
         if: github.event_name != 'pull_request'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: ULOMain-previews
           path: |
@@ -70,7 +70,7 @@ jobs:
           if-no-files-found: error
       - name: Upload GitHub Pages artifact
         if: github.event_name != 'pull_request'
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v5
         with:
           path: _site
 
@@ -88,4 +88,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
