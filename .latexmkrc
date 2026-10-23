@@ -44,17 +44,25 @@ sub run_makeglossaries {
     my ($base_name, $path) = fileparse($_[0]);
     pushd $path;
 
-    if ($silent) {
-        system "makeglossaries -q '$base_name'";        # For Unix-based systems.
-        # system "makeglossaries", "-q", "$base_name";  # For Windows-based systems.
-    } else {
-        system "makeglossaries '$base_name'";           # For Unix-based systems.
-        # system "makeglossaries", "$base_name";        # For Windows-based systems.
-    };
+    # List form: no shell quoting, so it works on both Unix and Windows.
+    my $ret = $silent ? system("makeglossaries", "-q", $base_name)
+                      : system("makeglossaries", $base_name);
 
     popd;
+    return $ret;
 }
 
 $success_cmd = "echo '[ OK ] Compilation of $root_filename successful!'";
 
-print `find . -maxdepth 2 -type f -name "*.tex" | sed -nE 's|\\./(.*)/.*|\\1|p' | sort -u | xargs -I {} mkdir -pv "$aux_dir"/{}`;
+# Mirror the folders holding .tex files inside $aux_dir, so that \include'd
+# files can write their .aux there. Pure Perl, so it also works on Windows.
+use File::Find;
+use File::Path qw(make_path);
+use File::Spec;
+find({ no_chdir => 1, wanted => sub {
+    my $name = (File::Spec->splitpath($_))[2];
+    if (-d && $name =~ /^\../) { $File::Find::prune = 1; return; }  # Skip hidden dirs (.git, .aux).
+    return unless $name =~ /\.tex$/;
+    (my $dir = $File::Find::dir) =~ s{^\./?}{};
+    make_path("$aux_dir/$dir") if $dir ne '';
+}}, '.');

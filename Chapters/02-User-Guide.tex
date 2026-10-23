@@ -26,7 +26,7 @@ If you plan to use this template, please read this chapter carefully. It provide
 It is crucial to note that the files are organised according to a specific naming convention, which must be \textbf{respected} and \textbf{maintained}. The naming convention consists of an ascending two-digit numeric value, followed by a hyphen, and then the file name in capital letters. The name should always aim to be a single word. If more than one word is necessary, they should be separated by a hyphen and capitalised.
 
 \begin{block}[note]
-While \autoref{tab:file-structure} indicates that the \textit{Matter} directory is not modifiable, two files within that directory should be altered when necessary: \texttt{04-Glossary.tex} and \texttt{05-Acronyms.tex}. Although the names are fairly self-explanatory, these files should contain the glossary and acronyms entries, respectively.
+While \autoref{tab:file-structure} indicates that the \textit{Matter} directory is not modifiable, three files within that directory should be altered when necessary: \texttt{05-Glossary.tex}, \texttt{06-Acronyms.tex}, and \texttt{07-Symbols.tex}. Although the names are fairly self-explanatory, these files should contain the glossary, acronyms, and symbols entries, respectively.
 \end{block}
 
 The two files mentioned earlier, \texttt{ULOMain.tex} and \texttt{ULOThesis.cls}, should be used with caution. The main file, as the name suggests, is the master file where you will add the necessary chapters to be included in your work. The class file, on the other hand, requires even more caution, and it is not recommended to alter it.
@@ -64,22 +64,22 @@ The first thing you need to do is specify the options within the \texttt{ULOMain
 
 \textbf{school=OPT} & \textbf{Choosing a school and its corresponding logo.} \\
 \multirow[t]{2}{*}{\footnotesize{\textit{estg, esecs, esslei, esad, estm}}} & \footnotesize{\textit{$\Rightarrow$ Default: school=estg}} \\
-& \footnotesize{\textit{This option only modifies the school name and the corresponding logo, which will be displayed on the cover and front page.}} \\[1.70em]
+& \footnotesize{\textit{This option only modifies the school name and the corresponding logo, which will be displayed on the cover and front page. Currently, only estg has the University of Leiria and Oeste logo; the other schools still use the former Polytechnic of Leiria logos.}} \\[1.70em]
 
 \textbf{language=OPT} & \textbf{Language preference selection.} \\
 \footnotesize{\textit{portuguese, english}} & \footnotesize{\textit{$\Rightarrow$ Default: language=english}} \\[0.85em]
         
-\textbf{chapterstyle=OPT} & \textbf{Selection of a cover design style.} \\
+\textbf{chapterstyle=OPT} & \textbf{Choosing a style for the chapter.} \\
 \multirow[t]{2}{*}{\footnotesize{\textit{classic, modern, fancy}}} & \footnotesize{\textit{$\Rightarrow$ Default: chapterstyle=classic}} \\
 & \footnotesize{\textit{This option modifies the appearance of the chapter, including its title and numbering style. Explore the available styles and apply the one you prefer.}} \\[1.70em]
 
-\textbf{coverstyle=OPT} & \textbf{Choosing a style for the chapter.} \\
+\textbf{coverstyle=OPT} & \textbf{Selection of a cover design style.} \\
 \multirow[t]{3}{*}{\footnotesize{\textit{classic, bw}}} & \footnotesize{\textit{$\Rightarrow$ Default: coverstyle=classic}} \\
-& \footnotesize{\textit{classic $\rightarrow$ Put the cover on in the original red.}} \\
+& \footnotesize{\textit{classic $\rightarrow$ Cover in the original dark red.}} \\
 & \footnotesize{\textit{bw $\rightarrow$ Make the cover black and white.}} \\
 
 \textbf{docstage=OPT} & \textbf{Choosing a stage for you document.} \\
-\multirow[t]{3}{*}{\footnotesize{\textit{final, working}}} & \footnotesize{\textit{$\Rightarrow$ Default: docstage=final}} \\
+\multirow[t]{3}{*}{\footnotesize{\textit{final, working}}} & \footnotesize{\textit{$\Rightarrow$ Default: docstage=working}} \\
 & \footnotesize{\textit{final $\rightarrow$ Assumes this is the final version of the document.}} \\
 & \footnotesize{\textit{working $\rightarrow$ It assumes the document is a work in progress.}} \\[.3em]
 

@@ -23,6 +23,7 @@ All notable differences between this fork and the upstream [IPLeiria Thesis](htt
 ## Build
 
 - Switched the TeX engine from XeLaTeX to LuaLaTeX (`.latexmkrc`, `Makefile` rubber target, and GitHub Actions workflow). The landscape-mode geometry patch now maps `\pdfpagewidth`/`\pdfpageheight` to LuaTeX's `\pagewidth`/`\pageheight`.
+- `.latexmkrc` now works on Windows: the `.aux` subfolders are created in Perl (previously with `find`/`sed`/`xargs`), and `makeglossaries` is called without shell quoting.
 
 ## Languages
 
@@ -42,6 +43,8 @@ All notable differences between this fork and the upstream [IPLeiria Thesis](htt
 - Replaced the single generic example with six realistic, subject-agnostic examples: grammar/spelling check, improving academic tone, code generation (with a syntax-highlighted listing), literature search support, condensing a section, and generating a LaTeX table (with a syntax-highlighted listing).
 
 ## Fixes
+
+- User guide corrections: glossary/acronyms/symbols file names, the `aiacknowledgement` option name, the `docstage` default, swapped `chapterstyle`/`coverstyle` descriptions, a note that only `estg` has the ULO logo, and the Overleaf free-plan compile limit (with OpenAI Prism as an alternative).
 
 - Appendices/Annexes chapter lettering now runs consecutively (A, B, C, ...) instead of Annexes jumping to "L" due to a hardcoded `\setcounter{chapter}{11}` left over from the original template.
 - Fixed PDF navigation: clicking a chapter in the Table of Contents or the PDF bookmark panel no longer jumps to an unexpected horizontal scroll position. Root cause was hyperref's default `XYZ`-type destinations; fixed via `pdfview=FitH`.
