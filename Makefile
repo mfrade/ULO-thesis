@@ -8,6 +8,12 @@ DOCUMENT=ULOMain.tex
 SHELL=/bin/bash
 TOOL=latexmk
 
+# Files needed to compile the template (used by the 'zip' target).
+VERSION=$(shell sed -n 's/.*\\newcommand{\\TemplateVersion}{\([^}]*\)}.*/\1/p' $(DOCUMENT))
+ZIP_NAME=ULO-thesis-v$(VERSION)
+ZIP_FILES=$(DOCUMENT) ULOThesis.cls .latexmkrc Makefile LICENSE \
+	Bibliography Chapters Code Configurations Figures Matter Metadata
+
 all:
 	@$(MAKE) check-minted
 	@$(MAKE) build
@@ -64,3 +70,13 @@ else
 	@echo "Watching $(DOCUMENT) for changes (bash)..."
 	@while true; do inotifywait -e close_write $(DOCUMENT); sleep 0.01; make all; done
 endif
+
+# Zip with only the files needed to compile, taken from the last commit (HEAD).
+zip:
+	@if [ -n "$$(git status --porcelain -- $(ZIP_FILES))" ]; then \
+		echo "Warning: uncommitted changes are not included (the zip uses the last commit)."; \
+	fi
+	@git archive --format=zip --prefix=$(ZIP_NAME)/ -o $(ZIP_NAME).zip HEAD $(ZIP_FILES)
+	@echo "Created $(ZIP_NAME).zip"
+
+.PHONY: zip
