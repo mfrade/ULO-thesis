@@ -8,6 +8,17 @@
 }}}
 \AddToShipoutPictureBG*{\BackgroundPicFrontPage}
 
+% Front page labels in the document language.
+\ifthenelse{\equal{\LanguageOption}{portuguese}}{%
+    \newcommand{\StudentNumberLabel}{N.º de estudante}
+    \newcommand{\SupervisorLabel}{Orientação:}
+    \newcommand{\CoSupervisorLabel}{Coorientação:}
+}{%
+    \newcommand{\StudentNumberLabel}{Student No.}
+    \newcommand{\SupervisorLabel}{Supervisor:}
+    \newcommand{\CoSupervisorLabel}{Co-supervisor:}
+}
+
 \newgeometry{margin=1.98cm, top=2.15cm, bottom=1.47cm}
 \begin{titlepage}
     \latofont
@@ -43,13 +54,6 @@
             \includegraphics[width=0.485\linewidth]{Figures/Theme/Logotypes/IPLeiria-ESECS-Logo-B.pdf}
         \end{figure}
     }
-    
-    \ifthenelse{\equal{\SchoolOption}{utnfrba}}{
-        \begin{figure}
-            \includegraphics[width=0.485\linewidth]{Figures/Theme/Logotypes/UTN-FRBA-Logo-B.pdf}
-        \end{figure}
-        \vspace{-1.8\baselineskip}
-    }
 
     \vspace{3.5\baselineskip}
 
@@ -78,7 +82,7 @@
     % Author.
     {\noindent\bfseries\fontsize{14}{19}\selectfont\GetFirstAuthor}
     
-    {\noindent\itshape\fontsize{10}{10}\selectfont Student No. \GetFirstAuthorNumber}
+    {\noindent\itshape\fontsize{10}{10}\selectfont \StudentNumberLabel{} \GetFirstAuthorNumber}
 
     \ifdefined\GetSecondAuthor
         \vspace{8pt}
@@ -98,11 +102,11 @@
     \fontsize{10}{12}\selectfont
     \renewcommand{\arraystretch}{0.1}
     \hspace*{-2.5pt}\begin{tabular}{@{}r@{\hspace{5pt}}>{\raggedright\arraybackslash}m{6cm}@{}}
-        \textbf{Supervisor:} & \GetSupervisor \\ [-.7ex]
+        \textbf{\SupervisorLabel} & \GetSupervisor \\ [-.7ex]
         & \setstretch{0.9}{\fontsize{8}{10}\selectfont\itshape \GetSupervisorTitle} \\ [2ex]
         
         \ifdefined\GetCoSupervisor
-            \textbf{Co-supervisor:} & \GetCoSupervisor \\ [-.7ex]
+            \textbf{\CoSupervisorLabel} & \GetCoSupervisor \\ [-.7ex]
             & \setstretch{0.9}{\fontsize{8}{10}\selectfont\itshape \GetCoSupervisorTitle} \\ [.5ex]
         \fi
 

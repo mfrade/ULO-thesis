@@ -5,7 +5,8 @@ All notable differences between this fork and the upstream [IPLeiria Thesis](htt
 ## Branding
 
 - Replaced the Polytechnic of Leiria / IPLeiria ESTG logo with the University of Leiria and Oeste (ULO) / ESTG logo, in both light-background and dark-background (cover) variants.
-- Replaced "Polytechnic University of Leiria" with "University of Leiria and Oeste" throughout the metadata, the cover, and the legal declaration text (PT/ES/EN) in the Copyright page.
+- Replaced "Polytechnic University of Leiria" with "University of Leiria and Oeste" throughout the metadata, the cover, and the legal declaration text (PT/EN) in the Copyright page.
+- Removed the `utnfrba` school option (UTN-FRBA), whose logo was never included in the repository.
 - Reworked the README: new logo banner, screenshots regenerated from this fork's actual configuration, all links repointed to this repository, and an attribution section crediting the original author and project.
 
 ## Renamed files
@@ -14,6 +15,21 @@ All notable differences between this fork and the upstream [IPLeiria Thesis](htt
 - `IPLeiriaThesis.cls` → `ULOThesis.cls` (including its internal LaTeX3 namespace, e.g. `\g_IPLeiriaThesis_...` → `\g_ULOThesis_...`)
 - `Chapters/Appendices/00-AppendixA.tex` → `Chapters/Appendices/00-AppendixAI.tex`
 - Build tooling (`Makefile`, `.latexmkrc`, GitHub Actions workflow) updated to match.
+
+## Build
+
+- Switched the TeX engine from XeLaTeX to LuaLaTeX (`.latexmkrc`, `Makefile` rubber target, and GitHub Actions workflow). The landscape-mode geometry patch now maps `\pdfpagewidth`/`\pdfpageheight` to LuaTeX's `\pagewidth`/`\pageheight`.
+
+## Languages
+
+- Removed Spanish support; the `language` option now accepts only `english` and `portuguese`.
+- Added `\ByLanguage{<EN>}{<PT>}` to select text by the document language, used in `Metadata/Metadata.tex` for the institutional fields and thesis type.
+- Front page labels (student number, supervisor, co-supervisor), the bibliography title, and `block` titles (To-Do, Tip, Warning, Note) now follow the document language.
+
+## Metadata
+
+- Removed the supervisor e-mail fields (`\SupervisorMail`, `\CoSupervisorMail`, `\SecCoSupervisorMail`), since reports are published online and exposed addresses attract spam.
+- Supervisor title and affiliation fields now use `\ByLanguage`, with English and Portuguese versions.
 
 ## AI Use Declaration & Appendix
 

@@ -1,5 +1,10 @@
 %%% Document Macros and Extras %%%
 
+% Pick the text matching the document language: \ByLanguage{<english>}{<portuguese>}.
+\NewDocumentCommand{\ByLanguage}{m m}{%
+    \ifthenelse{\equal{\LanguageOption}{portuguese}}{#2}{#1}%
+}
+
 % Blank page with a warning indicating it is intentionally left blank.
 \newcommand\blankpage{
     \clearpage
@@ -8,11 +13,9 @@
     \begin{center}
         \ifthenelse{\equal{\LanguageOption}{portuguese}}{%
             \textcolor{gray!50}{\textit{Página intencionalmente deixada em branco.}}
-        }{\ifthenelse{\equal{\LanguageOption}{spanish}}{%
-            \textcolor{gray!50}{\textit{Página intencionalmente dejada en blanco.}}
         }{%
             \textcolor{gray!50}{\textit{This page intentionally left blank.}}
-        }}
+        }
     \end{center}
     \vspace*{\fill}
     \clearpage
@@ -25,11 +28,9 @@
 \newcommand{\guideinfo}[1]{%
     \ifthenelse{\equal{\LanguageOption}{portuguese}}{%
         \noindent\textcolor{note}{\faInfoCircle\ \textbf{Orientação Para a Escrita}}%
-    }{\ifthenelse{\equal{\LanguageOption}{spanish}}{%
-        \noindent\textcolor{note}{\faInfoCircle\ \textbf{Guía de Escritura}}%
     }{
         \noindent\textcolor{note}{\faInfoCircle\ \textbf{Writing Guidance}}%
-    }}
+    }
     \\[.55em]%
     \noindent #1%
 }
@@ -37,11 +38,9 @@
 \newcommand{\exampleinfo}[1]{%
     \ifthenelse{\equal{\LanguageOption}{portuguese}}{%
         \noindent\textcolor{black}{\faInfoCircle\ \textbf{Exemplo de Utilização}}%
-    }{\ifthenelse{\equal{\LanguageOption}{spanish}}{%
-        \noindent\textcolor{black}{\faInfoCircle\ \textbf{Ejemplo de Uso}}%
     }{
         \noindent\textcolor{black}{\faInfoCircle\ \textbf{Example of Use}}%
-    }}
+    }
     \\[.55em]%
     \noindent #1%
 }
@@ -49,9 +48,10 @@
 % Abstract keywords.
 \NewDocumentCommand{\keywordsen}{m}{\vspace{.4cm}\noindent\textbf{Keywords:} #1}
 \NewDocumentCommand{\keywordspt}{m}{\vspace{.4cm}\noindent\textbf{Palavras-Chave:} #1}
-\NewDocumentCommand{\keywordses}{m}{\vspace{.4cm}\noindent\textbf{Palabras Clave:} #1}
 
 % Landscape mode - the proper way!
+% LuaTeX names these primitives \pagewidth/\pageheight.
+\ifdefined\pdfpagewidth\else\let\pdfpagewidth\pagewidth\let\pdfpageheight\pageheight\fi
 \def\ifGm@preamble#1{\@firstofone}
 \appto\restoregeometry{%
     \pdfpagewidth=\paperwidth
@@ -68,6 +68,16 @@
     \fancyheadoffset{0pt}
 }
 
+% Block titles in the document language (unknown types use the capitalised name).
+\newcommand{\blocktitle}[1]{%
+    \ifthenelse{\equal{\LanguageOption}{portuguese}}{%
+        \ifstrequal{#1}{todo}{Por Fazer}{\ifstrequal{#1}{tip}{Dica}{%
+        \ifstrequal{#1}{warning}{Aviso}{\ifstrequal{#1}{note}{Nota}{\capitalisewords{#1}}}}}%
+    }{%
+        \ifstrequal{#1}{todo}{To-Do}{\capitalisewords{#1}}%
+    }%
+}
+
 % Custom Markdown quote block implementation in LaTeX.
 \newtcolorbox[auto counter,number within=section]{block}[1][]{
     enhanced jigsaw,
@@ -81,7 +91,7 @@
     pad at break=1mm,
     top=4mm,
     bottom=4mm,
-    title={\ifstrequal{#1}{todo}{To-Do}{\capitalisewords{#1}}},
+    title={\blocktitle{#1}},
     code={\ifdefempty{\tcbtitletext}{}{\tcbset{before upper={\tcbtitle\par\medskip}}}},
 }
 
@@ -97,14 +107,6 @@
 \addto\extrasportuguese{\def\sectionautorefname{Secção}}
 \addto\extrasportuguese{\def\subsectionautorefname{Secção}}
 \addto\extrasportuguese{\def\subsubsectionautorefname{Secção}}
-\addto\extrasspanish{\def\figureautorefname{Figura}}
-\addto\extrasspanish{\def\chapterautorefname{Capítulo}}
-\addto\extrasspanish{\def\sectionautorefname{Sección}}
-\addto\extrasspanish{\def\subsectionautorefname{Sección}}
-\addto\extrasspanish{\def\subsubsectionautorefname{Sección}}
-\addto\extrasspanish{\def\tableautorefname{Tabla}}
-\addto\extrasspanish{\def\partautorefname{Parte}}
-\addto\extrasspanish{\def\appendixautorefname{Apéndice}}
 
 % Command to overwrite the color of a given command.
 \newcommand{\overwritecolor}[2]{%
@@ -149,15 +151,11 @@
         \IfNoValueTF{#1}
         {\noindent\textbf{Instrução:} #2}
         {\noindent\textbf{Instrução #1:} #2}
-    }{\ifthenelse{\equal{\LanguageOption}{spanish}}{%
-        \IfNoValueTF{#1}
-        {\noindent\textbf{Instrucción:} #2}
-        {\noindent\textbf{Instrucción #1:} #2}
     }{
         \IfNoValueTF{#1}
         {\noindent\textbf{Prompt:} #2}
         {\noindent\textbf{Prompt #1:} #2}
-    }}
+    }
 }
 
 \NewDocumentCommand{\aioutput}{o m}{%
@@ -165,13 +163,9 @@
         \IfNoValueTF{#1}
         {\noindent\textbf{Resposta:} #2}
         {\noindent\textbf{Resposta #1:} #2}
-    }{\ifthenelse{\equal{\LanguageOption}{spanish}}{%
-        \IfNoValueTF{#1}
-        {\noindent\textbf{Respuesta:} #2}
-        {\noindent\textbf{Respuesta #1:} #2}
     }{
         \IfNoValueTF{#1}
         {\noindent\textbf{Output:} #2}
         {\noindent\textbf{Output #1:} #2}
-    }}
+    }
 }

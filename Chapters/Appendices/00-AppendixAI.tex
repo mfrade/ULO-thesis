@@ -1,22 +1,18 @@
-\ifthenelse{\equal{\LanguageOption}{portuguese}}{\def\AppendixAILang{0}}{\ifthenelse{\equal{\LanguageOption}{spanish}}{\def\AppendixAILang{1}}{\def\AppendixAILang{2}}}
+\ifthenelse{\equal{\LanguageOption}{portuguese}}{\def\AppendixAILang{0}}{\def\AppendixAILang{1}}
 
 \ifnum\AppendixAILang=0
     \chapter{Exemplos da Utilização de IA}
-\else\ifnum\AppendixAILang=1
-    \chapter{Ejemplos del Uso de IA}
 \else
     \chapter{Examples of AI Usage}
-\fi\fi
+\fi
 \label{cp:appendix-ai}
 \guideinfo{Appendices contain supplementary material \textbf{created by the author} that enhances the reader’s understanding of the dissertation while not being essential for following the primary narrative. These sections often include detailed tables, figures, complex calculations, or materials like survey questions and interview transcripts produced in the course of the research. The appendices allow readers to explore the research in greater detail, offering a deeper insight into methods and findings without interrupting the main body of work. \bigskip }
 
 \ifthenelse{\equal{\LanguageOption}{portuguese}}{%
     As secções seguintes apresentam exemplos representativos das interações assistidas por IA referidas na Declaração de Utilização de Inteligência Artificial, ilustrando o conjunto de tarefas para as quais foram utilizadas ferramentas baseadas em IA na elaboração deste trabalho.
-}{\ifthenelse{\equal{\LanguageOption}{spanish}}{%
-    Las siguientes secciones presentan ejemplos representativos de las interacciones asistidas por IA mencionadas en la Declaración sobre el Uso de Inteligencia Artificial, ilustrando el conjunto de tareas para las que se emplearon herramientas basadas en IA en la elaboración de este trabajo.
 }{%
     The following sections present representative examples of the AI-assisted interactions referenced in the AI Use Declaration, illustrating the range of tasks for which AI-based tools were employed in the preparation of this work.
-}}
+}
 
 \ifnum\AppendixAILang=0
     \section*{Exemplo da Utilização de IA}
@@ -74,81 +70,6 @@ def compute_sha256(file_path, chunk_size=65536):
 
     \begin{listing}[!htpb]
     \caption{Exemplo de código LaTeX gerado para uma tabela de cronograma de projeto.}
-    \label{listing:timeline-example}
-    \begin{minted}{latex}
-\begin{landscape}
-\begin{table}[!htpb]
-\centering
-\caption{Project timeline.}
-\begin{tabular}{@{}lll@{}}
-\toprule
-Phase & Duration & Key Milestones \\
-\midrule
-Planning & Months 1--2 & Literature review; objectives defined \\
-Development & Months 3--6 & Prototype implemented; initial tests \\
-Evaluation & Months 7--8 & Results analysed; final report written \\
-\bottomrule
-\end{tabular}
-\end{table}
-\end{landscape}
-    \end{minted}
-    \end{listing}
-\else\ifnum\AppendixAILang=1
-    \section*{Ejemplo de Uso de IA}
-
-    \subsection*{Revisión Ortográfica y Gramatical}
-
-    \prompt[1]{Por favor, revisa el siguiente párrafo en busca de errores gramaticales y ortográficos, corrigiéndolo sin alterar su significado: "El método propuesto fueron evaluados en tres conjuntos de datos, y los resultados muestra una mejora significativa en comparación con el enfoke de referencia."}
-
-    \aioutput[1]{Párrafo corregido: "El método propuesto fue evaluado en tres conjuntos de datos, y los resultados muestran una mejora significativa en comparación con el enfoque de referencia." Correcciones realizadas: \emph{fueron → fue} (concordancia sujeto-verbo con "método"); \emph{muestra → muestran} (concordancia con "resultados"); \emph{enfoke → enfoque} (ortografía).}
-
-    \subsection*{Mejora del Tono Académico y la Claridad}
-
-    \prompt[2]{Reescribe el siguiente párrafo para que suene más formal y conciso, adecuado para una tesis, sin alterar su significado técnico ni introducir información nueva: "Probamos un montón de configuraciones diferentes del modelo y algunas funcionaron mucho mejor que otras, lo cual fue bastante interesante de ver."}
-
-    \aioutput[2]{"Se evaluaron varias configuraciones del modelo, y los resultados revelaron una variación considerable en el rendimiento entre configuraciones." Esta revisión sustituye expresiones informales (por ejemplo, "probamos un montón") por un lenguaje académico más formal, elimina comentarios subjetivos ("bastante interesante") y hace la estructura de la frase más concisa, preservando el significado original.}
-
-    \subsection*{Creación de Código}
-
-    \prompt[3]{Escribe una función en Python que calcule el hash SHA-256 de un archivo, leyéndolo en bloques de tamaño fijo, adecuada para verificar la integridad de archivos de gran tamaño sin cargarlos completamente en memoria.}
-
-    \aioutput[3]{El asistente proporcionó una función en Python que calcula el hash SHA-256 de un archivo leyéndolo en bloques de tamaño fijo, adecuada para verificar la integridad de archivos de gran tamaño sin cargarlos completamente en memoria, como se muestra en \autoref{listing:sha256-example}.}
-
-    \begin{listing}[!htpb]
-    \caption{Ejemplo de función generada para calcular el hash SHA-256 de un archivo en bloques.}
-    \label{listing:sha256-example}
-    \begin{minted}{python}
-import hashlib
-
-def compute_sha256(file_path, chunk_size=65536):
-    sha256 = hashlib.sha256()
-    with open(file_path, "rb") as f:
-        for chunk in iter(lambda: f.read(chunk_size), b""):
-            sha256.update(chunk)
-    return sha256.hexdigest()
-    \end{minted}
-    \end{listing}
-
-    \subsection*{Apoyo a la Búsqueda Bibliográfica}
-
-    \prompt[4]{Estoy investigando [tema], ¿puedes ayudarme a identificar enfoques comunes, limitaciones típicas y desafíos abiertos reportados en esta área, para que yo mismo pueda consultar las fuentes originales?}
-
-    \aioutput[4]{Los enfoques más comunes en esta área se agrupan, en general, en algunas categorías: métodos basados en reglas, sencillos de implementar e interpretar, pero a menudo poco flexibles; métodos basados en datos o en aprendizaje, que se adaptan mejor a condiciones variadas pero requieren más datos y recursos computacionales; y enfoques híbridos que combinan ambos. Entre los desafíos abiertos más citados se incluyen la generalización limitada entre conjuntos de datos, la falta de referencias de evaluación estandarizadas y la dificultad para garantizar la reproducibilidad. Nota: esta visión general es solo un punto de partida — verifique cada fuente de forma independiente antes de citarla, ya que las referencias sugeridas por la IA pueden ser inexactas o inventadas.}
-
-    \subsection*{Condensación de una Sección}
-
-    \prompt[5]{Por favor, condensa la siguiente sección, eliminando repeticiones de información ya presentada anteriormente en el documento, manteniendo toda la información esencial: "En este capítulo se describe la metodología utilizada en este trabajo. Como se mencionó anteriormente en la introducción, el objetivo de este estudio es evaluar el enfoque propuesto. Para ello, como ya se ha explicado, primero se recopilan los datos, después se procesan los datos y, finalmente, se analizan los resultados, lo cual, como se indicó antes, ayudará a responder la pregunta de investigación."}
-
-    \aioutput[5]{"Este capítulo detalla la metodología utilizada para evaluar el enfoque propuesto: recopilación, procesamiento y análisis de los datos." Se eliminaron las referencias repetidas a información ya presentada en la introducción (el objetivo del estudio y su relación con la pregunta de investigación), y el proceso de tres pasos se condensó en una sola frase, sin perder información esencial.}
-
-    \subsection*{Generación de Código LaTeX para una Tabla de Cronograma}
-
-    \prompt[6]{Genera código LaTeX para una tabla que presente el cronograma de un proyecto organizado en tres fases (por ejemplo, planificación, desarrollo y evaluación), incluyendo los hitos principales, formateada para caber en una sola página en orientación horizontal.}
-
-    \aioutput[6]{El asistente generó código LaTeX para una tabla de cronograma en tres fases, formateada con \texttt{booktabs} y envuelta en un entorno \texttt{landscape} para caber en una sola página, como se muestra en \autoref{listing:timeline-example}.}
-
-    \begin{listing}[!htpb]
-    \caption{Ejemplo de código LaTeX generado para una tabla de cronograma de proyecto.}
     \label{listing:timeline-example}
     \begin{minted}{latex}
 \begin{landscape}
@@ -243,4 +164,4 @@ Evaluation & Months 7--8 & Results analysed; final report written \\
 \end{landscape}
     \end{minted}
     \end{listing}
-\fi\fi
+\fi

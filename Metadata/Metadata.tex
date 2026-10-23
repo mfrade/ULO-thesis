@@ -12,19 +12,22 @@
 
 % Supervisor (Mandatory)
 \Supervisor{John Smith}
-\SupervisorMail{joe.smith@ipleiria.pt}
-% Please provide: [Current Title, Affiliation]
-\SupervisorTitle{Associate Professor, Polytechnic of Leiria}
+% Please provide: [Current Title, Affiliation] as \ByLanguage{<EN>}{<PT>}
+\SupervisorTitle{\ByLanguage
+    {Associate Professor, University of Leiria and Oeste}
+    {Professor Associado, Universidade de Leiria e Oeste}}
 
 % Co-Supervisor (Optional)
 \CoSupervisor{Steve Smith}
-\CoSupervisorMail{steve.smith@ipleiria.pt}
-\CoSupervisorTitle{Associate Professor, Polytechnic of Leiria}
+\CoSupervisorTitle{\ByLanguage
+    {Associate Professor, University of Leiria and Oeste}
+    {Professor Associado, Universidade de Leiria e Oeste}}
 
 % Second Co-Supervisor (Optional)
 \SecCoSupervisor{Shak Smith}
-\SecCoSupervisorMail{shak.smith@ipleiria.pt}
-\SecCoSupervisorTitle{Associate Researcher, Computer Science \& Communication Research Centre}
+\SecCoSupervisorTitle{\ByLanguage
+    {Associate Researcher, Computer Science \& Communication Research Centre}
+    {Investigador Associado, Centro de Investigação em Informática e Comunicações}}
 
 % Title (Mandatory)
 \Title{Improving Machine Learning Efficiency Against Noisy Data Sources}
@@ -32,32 +35,33 @@
 % Subtitle (Mandatory)
 \Subtitle{Investigating Advanced Strategies to Mitigate Adverse Effects of Noisy Data}
 
+% The fields below use \ByLanguage{<EN>}{<PT>}: the text matching
+% the 'language' class option is selected automatically.
+
 % University (Mandatory)
-% PT-PT:
-% \University{Universidade de Leiria e Oeste}
-% EN:
-\University{University of Leiria and Oeste}
+\University{\ByLanguage
+    {University of Leiria and Oeste}
+    {Universidade de Leiria e Oeste}}
 
 % School (Mandatory)
-% PT-PT:
-% \School{Escola de Tecnologia e Gestão}
-% EN:
-\School{School of Technology and Management}
+\School{\ByLanguage
+    {School of Technology and Management}
+    {Escola de Tecnologia e Gestão}}
 
 % Department (Mandatory)
-% PT-PT:
-% \Department{Departamento de Engenharia Informática}
-% EN:
-\Department{Department of Computer Engineering}
+\Department{\ByLanguage
+    {Department of Computer Engineering}
+    {Departamento de Engenharia Informática}}
 
 % Degree (Mandatory)
-% PT-PT:
-% \Degree{Mestrado em Cibersegurança e Informática Forense}
-% EN:
-\Degree{Master in Cybersecurity \& Digital Forensics}
+\Degree{\ByLanguage
+    {Master in Cybersecurity \& Digital Forensics}
+    {Mestrado em Cibersegurança e Informática Forense}}
 
 % Course (Optional)
-% \Course{Offensive \& Defensive Cybersecurity}
+% \Course{\ByLanguage
+%     {Offensive \& Defensive Cybersecurity}
+%     {Cibersegurança Ofensiva e Defensiva}}
 
 % Thesis Type (Mandatory)
 % Note from Miguel Frade:
@@ -65,11 +69,14 @@
 %   of the curricular unit in which you are enrolled. Otherwise, you will
 %   be asked to correct and resubmit the document. If you are unsure which
 %   type to select, check your curricular unit enrollment on inforestudante.ulo.pt.
-\ThesisType{Dissertation/Project/Internship \
-\textcolor{blue}{(The thesis type must \textbf{match the name of your curricular unit}.)}}
+\ThesisType{\ByLanguage
+    {Dissertation/Project/Internship \
+    \textcolor{blue}{(The thesis type must \textbf{match the name of your curricular unit}.)}}
+    {Dissertação/Projeto/Estágio \
+    \textcolor{blue}{(O tipo de trabalho tem de \textbf{corresponder ao nome da sua unidade curricular}.)}}}
 
 % Local & Date (Mandatory)
 \Date{Leiria, \DTMmonthname{\month} \number\year}
 
 % Academic Year 
-\AcademicYear{2025/2026}
+\AcademicYear{2026/2027}

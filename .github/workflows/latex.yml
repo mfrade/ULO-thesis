@@ -28,7 +28,7 @@ jobs:
         uses: xu-cheng/latex-action@v3
         with:
           root_file: ULOMain.tex
-          latexmk_use_xelatex: true
+          latexmk_use_lualatex: true
           latexmk_shell_escape: true
           extra_fonts: |
             ./Configurations/Fonts/*.ttf

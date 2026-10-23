@@ -21,7 +21,7 @@
 
 \keys_define:nn { ULOThesis } {
     school .choices:nn =
-        { estg, esecs, esslei, esad, estm, utnfrba }
+        { estg, esecs, esslei, esad, estm }
         { \tl_gset:Nn \g_ULOThesis_myschool_tl { #1 } },
     school / unknown .code:n = 
         { \ClassWarningNoLine{ULOThesis}
@@ -38,7 +38,7 @@
     coverstyle .initial:n = { classic },
 
     language .choices:nn = 
-        { english, portuguese, spanish } 
+        { english, portuguese } 
         { \tl_gset:Nn \g_ULOThesis_mylanguage_tl { #1 } },
     language / unknown .code:n = 
         { \ClassWarningNoLine{ULOThesis}{Specified~'language'~not~available.~Defaulting~to~'english'} },

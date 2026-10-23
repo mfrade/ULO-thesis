@@ -2,11 +2,9 @@
 \newenvironment{code}{\captionsetup{type=listing}}{}
 \ifthenelse{\equal{\LanguageOption}{portuguese}}{%
     \SetupFloatingEnvironment{listing}{name=Listagem,within=none}
-}{\ifthenelse{\equal{\LanguageOption}{spanish}}{%
-    \SetupFloatingEnvironment{listing}{name=Listado,within=none}
 }{%
     \SetupFloatingEnvironment{listing}{name=Listing,within=none}
-}}
+}
 \captionsetup[listing]{position=above,skip=-6pt}
 \newenvironment{longlisting}{\bigskip\medskip\captionsetup{type=listing}}{}
 
@@ -22,7 +20,7 @@
     breakanywhere=true
 }
 
-% Change line number color to gray (Frade's suggestion).
+% Change line number color to gray (Frade's suggestion) and size to 7pt, below the 9pt (\footnotesize) code.
 \renewcommand{\theFancyVerbLine}{%
-    \scriptsize\textcolor[rgb]{0.7,0.7,0.7}{\arabic{FancyVerbLine}}%
+    \fontsize{7}{9}\selectfont\textcolor[rgb]{0.7,0.7,0.7}{\arabic{FancyVerbLine}}%
 }

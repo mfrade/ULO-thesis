@@ -14,7 +14,7 @@
 # 3: DVI Conversion
 # 4: LuaLaTeX
 # 5: XeLaTeX
-$pdf_mode = 5;
+$pdf_mode = 4;
 
 # Main TeX file.
 $root_filename = 'ULOMain.tex';

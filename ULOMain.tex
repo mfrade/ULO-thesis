@@ -71,7 +71,11 @@
 \include{Chapters/03-Latex-Tutorial}
 
 %%% Bibliography %%%
-\renewcommand{\refname}{Bibliography}
+\ifthenelse{\equal{\LanguageOption}{portuguese}}{%
+    \renewcommand{\refname}{Bibliografia}
+}{%
+    \renewcommand{\refname}{Bibliography}
+}
 \printbibliography[title={\refname},heading=bibintoc]
 
 %%% Appendices: Work that *YOU* Developed %%%

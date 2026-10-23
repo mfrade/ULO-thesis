@@ -32,9 +32,9 @@ check-minted:
 build:
 	@echo "Building $(DOCUMENT) with $(TOOL)..."
 ifeq ($(TOOL),rubber)
-	@rubber --pdf --module xelatex --shell-escape $(DOCUMENT)
+	@rubber --pdf --module lualatex --shell-escape $(DOCUMENT)
 else ifeq ($(TOOL),latexmk)
-	#@latexmk -pdf -xelatex -shell-escape $(DOCUMENT)
+	#@latexmk -pdf -lualatex -shell-escape $(DOCUMENT)
 	@latexmk
 else
 	@echo "Error: Unsupported tool '$(TOOL)'. Use 'rubber' or 'latexmk'."
