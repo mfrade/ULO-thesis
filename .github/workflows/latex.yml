@@ -1,6 +1,8 @@
 name: Build LaTeX Document
 on:
   push:
+    # Only branch pushes; with a branches filter alone, tag pushes don't trigger the workflow.
+    branches: ['**']
     paths-ignore:
       - '**/README.md'
       - '**/LICENSE'
@@ -16,6 +18,8 @@ on:
       - '**/.gitattributes'
       - '**/Makefile'
       - 'Assets/**'
+  # Manual run from the Actions tab ("Run workflow"); also publishes to GitHub Pages.
+  workflow_dispatch:
 permissions:
   contents: read
 jobs:
@@ -41,13 +45,13 @@ jobs:
           if-no-files-found: error
           retention-days: 90
       - name: Configure GitHub Pages
-        if: github.event_name == 'push'
+        if: github.event_name != 'pull_request'
         uses: actions/configure-pages@v5
       - name: Install Poppler utilities
-        if: github.event_name == 'push'
+        if: github.event_name != 'pull_request'
         run: sudo apt-get update && sudo apt-get install --no-install-recommends -y poppler-utils
       - name: Prepare GitHub Pages site
-        if: github.event_name == 'push'
+        if: github.event_name != 'pull_request'
         run: |
           mkdir -p _site
           cp ULOMain.pdf _site/ULOMain.pdf
@@ -55,7 +59,7 @@ jobs:
             pdftoppm -png -singlefile -f "$page" -l "$page" -r 144 ULOMain.pdf "_site/page-${page}"
           done
       - name: Upload preview PNGs
-        if: github.event_name == 'push'
+        if: github.event_name != 'pull_request'
         uses: actions/upload-artifact@v4
         with:
           name: ULOMain-previews
@@ -65,13 +69,13 @@ jobs:
             _site/page-28.png
           if-no-files-found: error
       - name: Upload GitHub Pages artifact
-        if: github.event_name == 'push'
+        if: github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@v4
         with:
           path: _site
 
   deploy_pages:
-    if: github.event_name == 'push'
+    if: github.event_name != 'pull_request'
     needs: build_latex
     runs-on: ubuntu-latest
     permissions:
