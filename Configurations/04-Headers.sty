@@ -21,11 +21,11 @@
 
     % Add the document version to the footer of the document.
     \ifthenelse{\equal{\DocStageOption}{working}}{
-        \fancyfoot[OCF,ECF]{\small\GetDocumentVersion~-~\textit{\today}}
+        \fancyfoot[OCF,ECF]{\small\overwritecolor{blue}{\GetDocumentVersion~---~\textit{\today}}}
     }{}
 }
 
 % Add the document version to the footer of the document.
 \ifthenelse{\equal{\DocStageOption}{working}}{%
-    \fancyfoot[OCF,ECF]{\small\GetDocumentVersion~-~\textit{\today}}%
+    \fancyfoot[OCF,ECF]{\small\overwritecolor{blue}{\GetDocumentVersion~---~\textit{\today}}}%
 }{}

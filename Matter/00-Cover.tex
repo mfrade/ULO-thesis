@@ -143,9 +143,16 @@
 	\fi
 
     \ifthenelse{\equal{\DocStageOption}{working}}{
+        % Light blue on the dark classic cover, plain blue on the white one.
+        \ifthenelse{\equal{\CoverOption}{classic}}{\colorlet{draftcolor}{blue!25!white}}{\colorlet{draftcolor}{blue}}
         \vspace{62pt}
-        {\noindent\fontsize{10}{12}\selectfont\overwritecolor{yellow}{\GetDocumentVersion \\ \textit{\today}}} 
-        \vspace{62pt}
+        {\noindent\fontsize{10}{12}\selectfont\overwritecolor{draftcolor}{\GetDocumentVersion \\ \textit{\today}}}
+
+        \vspace{4pt}
+        {\noindent\fontsize{8}{10}\selectfont\textcolor{draftcolor}{\ByLanguage
+            {To remove this note, set \texttt{docstage=final} in the class options of \texttt{ULOMain.tex}.}
+            {Para remover esta nota, defina \texttt{docstage=final} nas opções da classe em \texttt{ULOMain.tex}.}}}
+        \vspace{48pt}
     }{
         \vspace{125pt}
     }
